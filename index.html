@@ -59,23 +59,28 @@
     }
 
     /* زر واتساب ثابت */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      transform: translate(+400%);
-      background-color: #25D366;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      transition: background-color 0.3s;
-      z-index: 1000;
-    }
+    .whatsapp-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: background-color 0.3s;
+}
+
+.whatsapp-inline img {
+  width: 20px;
+  height: 20px;
+}
+
+.whatsapp-inline:hover {
+  background-color: #1ebe5d;
+}
 
     .whatsapp-float img {
       width: 24px;
@@ -95,6 +100,12 @@
     <img src="https://j.top4top.io/p_3399iqm8l1.png" alt="Company Logo">
   </div>
 
+  <!-- زر واتساب ثابت -->
+  <a href="https://wa.me/97336636509" target="_blank" class="whatsapp-inline">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    WhatsApp
+  </a>
+
   <!-- نموذج البحث -->
   <div class="container">
     <h2>Check Data Usage</h2>
@@ -102,12 +113,6 @@
     <button onclick="checkData()">Check</button>
     <div id="result"></div>
   </div>
-
-  <!-- زر واتساب ثابت -->
-  <a href="https://wa.me/97336636509" target="_blank" class="whatsapp-float">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    WhatsApp
-  </a>
 
   <script>
     async function checkData() {
