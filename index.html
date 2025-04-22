@@ -151,22 +151,21 @@
             const totalGB = (initial / (1024 ** 3)).toFixed(2);
             const percentage = ((usedBytes / initial) * 100).toFixed(1);
 
+
             const endDate = new Date(assignment.endTime);
             const expiryFormatted = `${endDate.getDate().toString().padStart(2, '0')}/${
               (endDate.getMonth() + 1).toString().padStart(2, '0')
-            }/${endDate.getFullYear()}`;
+            }/${endDate.getFullYear()} ${endDate.getHours().toString().padStart(2, '0')}:${endDate.getMinutes().toString().padStart(2, '0')}`;
 
             resultDiv.innerHTML = `
               <div style="background:#f9f9f9; padding:20px; border-radius:10px; border:1px solid #ddd;">
                 <p><strong>ICCID:</strong> ${iccid}</p>
-                <p><strong>Data Usage :</strong> ${usedGB} GB</p>
-               
+                <p><strong>Data Usage:</strong> ${usedGB} GB</p>
                 <div style="background:#e0e0e0; border-radius:20px; overflow:hidden; height:20px; margin:10px 0;">
                   <div style="width:${percentage}%; background:#4caf50; height:100%;"></div>
                 </div>
-
-                <p><strong>Data Balanc :</strong> ${remainingGB} GB</p>
-                <p><strong>Expir Date:</strong> ${expiryFormatted}</p>
+                <p><strong>Data Balance:</strong> ${remainingGB} GB</p>
+                <p><strong>Expiry Date:</strong> ${expiryFormatted}</p>
               </div>
             `;
           } else {
