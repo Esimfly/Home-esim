@@ -146,11 +146,24 @@
             const remaining = assignment.remainingQuantity;
             const usedBytes = initial - remaining;
 
-            const usedGB = (usedBytes / (1024 ** 3)).toFixed(2);
-            const remainingGB = (remaining / (1024 ** 3)).toFixed(2);
-            const totalGB = (initial / (1024 ** 3)).toFixed(2);
-            const percentage = ((usedBytes / initial) * 100).toFixed(1);
+  // تحويل من Bytes → MB → GB (عشري 1000)
+  const initialMB = initial / 1_000_000;
+  const remainingMB = remaining / 1_000_000;
+  const usedMB = usedBytes / 1_000_000;
 
+  const totalGB = (initialMB / 1000).toFixed(3);
+  const remainingGB = (remainingMB / 1000).toFixed(3);
+  const usedGB = (usedMB / 1000).toFixed(3);
+
+  const percentage = ((usedMB / initialMB) * 100).toFixed(1);
+
+  return {
+    totalGB,
+    remainingGB,
+    usedGB,
+    percentage
+  };
+}
 
             const endDate = new Date(assignment.endTime);
             const expiryFormatted = `${endDate.getDate().toString().padStart(2, '0')}/${
