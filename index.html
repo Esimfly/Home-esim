@@ -157,14 +157,6 @@
 
   const percentage = ((usedMB / initialMB) * 100).toFixed(1);
 
-  return {
-    totalGB,
-    remainingGB,
-    usedGB,
-    percentage
-  };
-}
-
             const endDate = new Date(assignment.endTime);
             const expiryFormatted = `${endDate.getDate().toString().padStart(2, '0')}/${
               (endDate.getMonth() + 1).toString().padStart(2, '0')
