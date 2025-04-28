@@ -126,7 +126,7 @@
 
   <div class="container">
     <h2>Check Data Usage</h2>
-    <input type="text" id="iccid" placeholder="Enter ICCID">
+    <input type="text" id="iccid" placeholder="89.....Enter ICCID....">
     <button onclick="checkData()">Check</button>
     <div id="result"></div>
   </div>
@@ -218,7 +218,6 @@
 
           resultDiv.innerHTML += `
             <div style="background:#f9f9f9; padding:20px; border-radius:10px; border:1px solid #ddd; margin-bottom:20px;">
-              <p><strong>Bundle Name:</strong> ${bundle.name}</p>
               <p><strong>Description:</strong> ${bundle.description || 'No description'}</p>
               <p><strong>ICCID:</strong> ${iccid}</p>
               <p><strong>Data Usage:</strong> ${usedGB} GB</p>
