@@ -188,7 +188,7 @@
           return;
         }
 
-        resultDiv.innerHTML = '';
+        const countdownItems = [];
 
         bundles.forEach((bundle, index) => {
           const assignment = bundle.assignments?.[0];
@@ -214,12 +214,12 @@
 
           const barColor = getProgressColor(percentage);
 
-          const cardId = `countdown_${index}`;
+          const cardId = `countdown-${index}`;
 
           resultDiv.innerHTML += `
-            <div style="background:#f9f9f9; padding:20px; border-radius:10px; border:1px solid #ddd; margin-bottom:20px;">
-              <p><strong>Description:</strong> ${bundle.description || 'No description'}</p>
+            <div style="background:#f9f9f9; padding:20px; border-radius:10px; border:1px solid #ddd; margin-top: 20px;">
               <p><strong>ICCID:</strong> ${iccid}</p>
+              <p><strong>Bundle:</strong> ${bundle.description}</p>
               <p><strong>Data Usage:</strong> ${usedGB} GB</p>
               <div class="progress-bar">
                 <div class="progress-bar-fill" style="width:${percentage}%; background-color:${barColor};"></div>
@@ -230,7 +230,14 @@
             </div>
           `;
 
-          startCountdown(endDate.getTime(), document.getElementById(cardId));
+          countdownItems.push({ endTime: endDate.getTime(), id: cardId });
+        });
+
+        countdownItems.forEach(item => {
+          const el = document.getElementById(item.id);
+          if (el) {
+            startCountdown(item.endTime, el);
+          }
         });
 
       } catch (err) {
