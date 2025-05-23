@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Check Data Usage</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>Server 1 - eSIM Fly</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
+   body {
       font-family: Arial, sans-serif;
       padding: 20px;
       margin: 0;
@@ -18,7 +18,7 @@
     }
 
     .logo-container img {
-      width: 200px;
+      width: 160px;
       height: auto;
       border-radius: 10px;
       object-fit: contain;
@@ -45,22 +45,16 @@
 
     button {
       padding: 10px 20px;
-      font-size: 20px;
-      background-color: #0d94ee;
+      font-size: 16px;
+      background-color: #1100ff;
       color: #fff;
       border: none;
-      border-radius: 12px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #2619e4;
     }
 
     #result {
       margin-top: 25px;
-      text-align: left;
     }
 
     .whatsapp-inline {
@@ -79,18 +73,6 @@
     .whatsapp-inline img {
       width: 20px;
       height: 20px;
-    }
-
-    .server-buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      margin-top: 15px;
-    }
-
-    .server-buttons button {
-      width: 200px;
     }
 
     .progress-bar {
@@ -129,25 +111,24 @@
 <body>
 
   <div class="logo-container">
-    <img src="https://files.catbox.moe/s83b16.png" alt="Company Logo" />
+    <img src="https://files.catbox.moe/s83b16.png" alt="Company Logo">
   </div>
 
   <a href="https://wa.me/97336636509" target="_blank" class="whatsapp-inline">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     WhatsApp
   </a>
 
   <a href="https://www.instagram.com/esim_fly?igsh=YXJlem8wcWE3YWtu" target="_blank" class="whatsapp-inline" style="background-color: #E1306C;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
     Instagram
   </a>
 
-    <div class="server-buttons" style="margin-top: 30px;">
-      <button onclick="location.href='server1.html';"> Server 1 </button>
-      <button onclick="location.href='https://esimflys2-kh0rehujq-esim-flys-projects.vercel.app';"> Server 2 </button>
-      <button onclick="location.href='https://yourserver3.com';"> Server 3 </button>
-      <button onclick="location.href='https://yourserver4.com';"> Server 4 </button>
-    </div>
+  <div class="container">
+    <h2>Check Data Usage</h2>
+    <input type="text" id="iccid" placeholder="89.....Enter ICCID....">
+    <button onclick="checkData()">Check</button>
+    <div id="result"></div>
   </div>
 
   <script>
@@ -184,7 +165,7 @@
       const iccid = document.getElementById("iccid").value.trim();
       const resultDiv = document.getElementById("result");
 
-      resultDiv.innerHTML = ""; // Clear previous results
+      resultDiv.innerHTML = ""; // ✅ مسح النتائج السابقة
 
       if (!iccid) {
         resultDiv.innerHTML = '<p style="color:red;">Please enter ICCID.</p>';
@@ -195,7 +176,7 @@
         const response = await fetch(`https://api.esim-go.com/v2.4/esims/${iccid}/bundles`, {
           method: 'GET',
           headers: {
-            'X-API-Key': 'WASne7TcbZ9qtrjhfxEe2VEDwlhbsGgBFSDJkmul' // ضع هنا مفتاحك الصحيح
+            'X-API-Key': 'WASne7TcbZ9qtrjhfxEe2VEDwlhbsGgBFSDJkmul'
           }
         });
 
